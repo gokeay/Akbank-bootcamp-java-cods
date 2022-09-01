@@ -1,0 +1,62 @@
+Bir sayının Tek mi Çift mi olduğunu belirleyen bir işlev oluşturun.<br>
+Bir sayı, tüm basamaklarının toplamı tek ise tek, tüm basamaklarının toplamı çift ise bir çift sayıdır.<br>
+Bir sayı tek ise, "Odd" döndürün.<br>
+Aksi takdirde, "Even" değerini döndürün.<br>
+
+Örnek olarak:<br>
+
+oddishOrEvenish(43) ➞ "Odd"<br>
+// 4 + 3 = 7<br>
+// 7 % 2 = 1<br>
+
+oddishOrEvenish(373) ➞ "Odd"<br>
+// 3 + 7 + 3 = 13<br>
+// 13 % 2 = 1<br>
+
+oddishOrEvenish(4433) ➞ "Even"<br>
+// 4 + 4 + 3 + 3 = 14<br>
+// 14 % 2 = 0<br>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Akbank-Patika.dev Bootcamp JavaScript Even-Odd Function Homework</h2>
+
+<input type="number" id="girilen_sayi" required>
+
+<button type="button" onclick="oddishOrEvenish()">Test</button>
+
+<p id="demo"></p>
+
+<script>
+function oddishOrEvenish() {
+  var a = document.getElementById("girilen_sayi").value;
+  let b = a.toString().length;
+  let toplam = 0;
+  let sonuc;
+
+  if (a == "") {
+    alert("kutuya bir rakam girmeniz gerek!");
+    return false;
+  }
+
+  for (let i = 0; i < b; i++) {
+    toplam += (a % 10) ;
+    a = a - (a % 10);
+    a = a / 10;
+  }
+
+  if ((toplam % 2) == 0) {
+    sonuc = "Even";
+  } else if ((toplam % 2) == 1) {
+    sonuc = "Odd";
+  }
+
+  document.getElementById("demo").innerHTML = sonuc;
+  toplam = 0;
+}
+</script>
+
+</body>
+</html>
